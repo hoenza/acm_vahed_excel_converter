@@ -12,7 +12,7 @@ for i in range(2, sheet_in.max_row + 1):
         course_id_in = sheet_in['F' + str(i)].value
         j = 0
         while j < len(course_id_in) and course_id_in[j] != '-':
-            j += 1
+            j += 1  
         sheet_out.write('B' + str(i - delay_cursor), course_id_in[:j])
         sheet_out.write('C' + str(i - delay_cursor), course_id_in[j + 1:])
         sheet_out.write('D' + str(i - delay_cursor), sheet_in['H' + str(i)].value)
