@@ -1,9 +1,9 @@
 import openpyxl
 import xlsxwriter
-
-ex_in = openpyxl.load_workbook('input.xlsx')
-sheet_in = ex_in['Sheet1']
-ex_out = xlsxwriter.Workbook('output.xlsx')
+import sys
+filename = sys.argv[1] if len(sys.argv) == 2 else 'input.xlsx'
+ex_in = openpyxl.load_workbook(filename)
+ex_out = xlsxwriter.Workbook(filename.split('.')[0]+'output.xlsx')
 sheet_out = ex_out.add_worksheet('Merged')
 delay_cursor = -1
 for i in range(2, sheet_in.max_row + 1):
@@ -56,4 +56,6 @@ for i in range(2, sheet_in.max_row + 1):
                     sheet_out.write('O' + str(i - delay_cursor), tmp_time[6:])
     else:
         delay_cursor += 1
+ex_in.close()
+ex_out.close()
 print('ok')
