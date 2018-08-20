@@ -11,8 +11,9 @@ for i in range(2, sheet_in.max_row + 1):
     if str(sheet_in['A' + str(i)].value) != 'None':
         sheet_out.write('A' + str(i - delay_cursor), sheet_in['G' + str(i)].value)
         course_id_in = sheet_in['F' + str(i)].value
+        # course_id_in = course_id_in.replace('_', '-')
         j = 0
-        while j < len(course_id_in) and course_id_in[j] != '-':
+        while j < len(course_id_in) and course_id_in[j] not in ['-', '_']:
             j += 1  
         sheet_out.write('B' + str(i - delay_cursor), course_id_in[:j])
         sheet_out.write('C' + str(i - delay_cursor), course_id_in[j + 1:])
