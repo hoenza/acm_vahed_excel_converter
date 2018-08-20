@@ -16,14 +16,13 @@ for i in range(2, sheet_in.max_row + 1):
         sheet_out.write('B' + str(i - delay_cursor), course_id_in[:j])
         sheet_out.write('C' + str(i - delay_cursor), course_id_in[j + 1:])
         sheet_out.write('D' + str(i - delay_cursor), sheet_in['H' + str(i)].value)
-        sheet_out.write('E' + str(i - delay_cursor), sheet_in['M' + str(i)].value)
+        sheet_out.write('E' + str(i - delay_cursor), sheet_in['N' + str(i)].value)
         sheet_out.write('P' + str(i - delay_cursor), sheet_in['J' + str(i)].value)
         tmp = 1
         while i+tmp <= sheet_in.max_row and str(sheet_in['A' + str(i + tmp)].value) == 'None':
             tmp += 1
         for k in range(0, tmp):
-
-            tmp_time = sheet_in['N' + str(i + k)].value
+            tmp_time = sheet_in['O' + str(i + k)].value
             if str(tmp_time) == 'None':
                 continue
             j = 0
