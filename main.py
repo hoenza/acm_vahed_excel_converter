@@ -3,7 +3,7 @@ import xlsxwriter
 import sys
 filename = sys.argv[1] if len(sys.argv) == 2 else 'input.xlsx'
 ex_in = openpyxl.load_workbook(filename)
-ex_out = xlsxwriter.Workbook(filename.split('.')[0]+'output.xlsx')
+ex_out = xlsxwriter.Workbook(filename.split('.')[0]+'_output.xlsx')
 sheet_out = ex_out.add_worksheet('Merged')
 delay_cursor = -1
 sheet_in = ex_in['Sheet1']
