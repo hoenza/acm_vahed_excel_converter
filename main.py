@@ -6,6 +6,7 @@ ex_in = openpyxl.load_workbook(filename)
 ex_out = xlsxwriter.Workbook(filename.split('.')[0]+'output.xlsx')
 sheet_out = ex_out.add_worksheet('Merged')
 delay_cursor = -1
+sheet_in = ex_in['Sheet1']
 for i in range(2, sheet_in.max_row + 1):
     if str(sheet_in['A' + str(i)].value) != 'None':
         sheet_out.write('A' + str(i - delay_cursor), sheet_in['G' + str(i)].value)
